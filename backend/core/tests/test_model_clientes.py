@@ -127,4 +127,4 @@ def test_one_client_exist_and_has_parms_should_return_succeed(client) -> None:
     response = client.get(dossie_url)
     response_content = json.loads(response.content)
     assert response.status_code == 200
-    assert len(response_content) == 2
+    assert len(response_content) == len(Dossie.objects.all())
