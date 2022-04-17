@@ -7,18 +7,20 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0008_alter_dossie_state'),
+        ("core", "0008_alter_dossie_state"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='paramsuser',
-            options={'verbose_name': 'Parametro', 'verbose_name_plural': 'Parametros'},
+            name="paramsuser",
+            options={"verbose_name": "Parametro", "verbose_name_plural": "Parametros"},
         ),
         migrations.AddField(
-            model_name='paramsuser',
-            name='created_at',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="paramsuser",
+            name="created_at",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
     ]

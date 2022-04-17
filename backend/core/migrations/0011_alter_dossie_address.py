@@ -7,14 +7,18 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0010_alter_dossie_birthday'),
+        ("core", "0010_alter_dossie_birthday"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='dossie',
-            name='address',
-            field=models.CharField(default=django.utils.timezone.now, max_length=250, verbose_name='Endereço'),
+            model_name="dossie",
+            name="address",
+            field=models.CharField(
+                default=django.utils.timezone.now,
+                max_length=250,
+                verbose_name="Endereço",
+            ),
             preserve_default=False,
         ),
     ]

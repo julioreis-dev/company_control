@@ -35,22 +35,22 @@ def test_one_client_exist_should_return_succeed(client) -> None:
     assert response_content["tel2"] == test_client.tel2
 
 
-def test_create_client_exist_with_should_return_succes(client) -> None:
-    Dossie.objects.create(
-        name="Firmino",
-        address="Rua dos invalidos",
-        email="firma@gmail.com",
-        tel1="21985632147",
-        tel2="21985632148",
-    )
-    response = client.post(dossie_url)
-    assert response.status_code == 200
-    assert json.loads(response.content) == {
-        "email": ["Este campo é obrigatório."],
-        "name": ["Este campo é obrigatório."],
-        "tel1": ["Este campo é obrigatório."],
+def test_create_client_should_return_succes(client) -> None:
+    data_name = {
+        "name": "Firmino",
+        "address": "Rua dos invalidos",
+        "email": "firma@gmail.com",
+        "tel1": "21985632147",
+        "tel2": "21985632148",
     }
-
+    response = client.post(path=dossie_url, data=data_name)
+    assert response.status_code == 201
+    response_content = response.json()
+    assert response_content["name"] == data_name["name"]
+    assert response_content["address"] == data_name['address']
+    assert response_content["email"] == data_name['email']
+    assert response_content["tel1"] == data_name['tel1']
+    assert response_content["tel2"] == data_name['tel2']
 
 
 def test_one_client_exist_with_wrong_email_pattern_should_return_fail(client) -> None:

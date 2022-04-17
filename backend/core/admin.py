@@ -4,11 +4,11 @@ from .models.models_params import ParamsUser
 
 
 class DossieAdmin(admin.ModelAdmin):
-    list_display = ('name', 'state', 'email', 'created_at', 'updated_at')
+    list_display = ("name", "state", "email", "created_at", "updated_at")
 
 
 class ParamsUserAdmin(admin.ModelAdmin):
-    list_display = ('project', 'description', 'dossie')
+    list_display = ("project", "description", "dossie")
 
 
 admin.site.register(Dossie, DossieAdmin)

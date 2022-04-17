@@ -7,18 +7,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0011_alter_dossie_address'),
+        ("core", "0011_alter_dossie_address"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='dossie',
-            name='address',
-            field=models.CharField(blank=True, max_length=250, null=True, verbose_name='Endereço'),
+            model_name="dossie",
+            name="address",
+            field=models.CharField(
+                blank=True, max_length=250, null=True, verbose_name="Endereço"
+            ),
         ),
         migrations.AlterField(
-            model_name='dossie',
-            name='birthday',
-            field=models.DateField(default=datetime.date.today, verbose_name='Nascimento'),
+            model_name="dossie",
+            name="birthday",
+            field=models.DateField(
+                default=datetime.date.today, verbose_name="Nascimento"
+            ),
         ),
     ]

@@ -7,17 +7,35 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0006_alter_dossie_state'),
+        ("core", "0006_alter_dossie_state"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ParamsUser',
+            name="ParamsUser",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('project', models.CharField(max_length=200, verbose_name='Nome do projeto')),
-                ('description', models.TextField(verbose_name='Descrição')),
-                ('dossie', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='dossie', to='core.dossie')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "project",
+                    models.CharField(max_length=200, verbose_name="Nome do projeto"),
+                ),
+                ("description", models.TextField(verbose_name="Descrição")),
+                (
+                    "dossie",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="dossie",
+                        to="core.dossie",
+                    ),
+                ),
             ],
         ),
     ]

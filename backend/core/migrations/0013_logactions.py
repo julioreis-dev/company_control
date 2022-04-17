@@ -7,22 +7,40 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0012_auto_20220415_1723'),
+        ("core", "0012_auto_20220415_1723"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='LogActions',
+            name="LogActions",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name_log', models.CharField(max_length=200, verbose_name='Nome do projeto')),
-                ('action_description', models.TextField(verbose_name='Descrição')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('paramsuser', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='params', to='core.paramsuser')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name_log",
+                    models.CharField(max_length=200, verbose_name="Nome do projeto"),
+                ),
+                ("action_description", models.TextField(verbose_name="Descrição")),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "paramsuser",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="params",
+                        to="core.paramsuser",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Correção',
-                'verbose_name_plural': 'Correções',
+                "verbose_name": "Correção",
+                "verbose_name_plural": "Correções",
             },
         ),
     ]

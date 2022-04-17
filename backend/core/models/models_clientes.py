@@ -10,14 +10,14 @@ class Dossie(models.Model):
 
     name = models.CharField(max_length=200, verbose_name="nome")
     birthday = models.DateField(
-        default=datetime.date.today, verbose_name="Nascimento", editable=True,
+        default=datetime.date.today,
+        verbose_name="Nascimento",
+        editable=True,
     )
     address = models.CharField(
         max_length=250, verbose_name="Endereço", null=True, blank=True
     )
-    state = models.IntegerField(
-        choices=CITIES, default=1, verbose_name="Estado"
-    )
+    state = models.IntegerField(choices=CITIES, default=1, verbose_name="Estado")
     email = models.EmailField(max_length=200, verbose_name="Email", unique=True)
     tel1 = models.CharField(
         max_length=11,

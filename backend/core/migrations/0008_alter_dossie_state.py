@@ -6,13 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0007_paramsuser'),
+        ("core", "0007_paramsuser"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='dossie',
-            name='state',
-            field=models.IntegerField(choices=[(1, 'Rio de Janeiro'), (2, 'São Paulo'), (3, 'Minas Gerais'), (4, 'Paraná')], default=1, verbose_name='Estado'),
+            model_name="dossie",
+            name="state",
+            field=models.IntegerField(
+                choices=[
+                    (1, "Rio de Janeiro"),
+                    (2, "São Paulo"),
+                    (3, "Minas Gerais"),
+                    (4, "Paraná"),
+                ],
+                default=1,
+                verbose_name="Estado",
+            ),
         ),
     ]
