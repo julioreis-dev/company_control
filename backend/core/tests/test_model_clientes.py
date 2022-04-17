@@ -2,8 +2,7 @@ import json
 import pytest
 from django.urls import reverse
 from ..models.models_clientes import Dossie
-import datetime
-from ..models.models_params import ParamsUser
+
 
 # pytest --cov=.
 
