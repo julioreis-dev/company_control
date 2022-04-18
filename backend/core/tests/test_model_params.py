@@ -5,7 +5,6 @@ import datetime
 from ..models.models_clientes import Dossie
 from ..models.models_params import ParamsUser
 
-
 params_url = reverse("paramsview-list")
 pytestmark = pytest.mark.django_db
 
@@ -28,6 +27,7 @@ def test_one_client_has_params_should_return_succeed(client) -> None:
     assert response_content["description"] == params_client.description
     assert response_content["dossie"] == params_client.id
 
+
 def test_register_miss_project_params_should_return_succeed(client) -> None:
     data_params = {
         "description": "projeto consulta"
@@ -38,6 +38,7 @@ def test_register_miss_project_params_should_return_succeed(client) -> None:
         'dossie': ['Este campo é obrigatório.'],
         'project': ['Este campo é obrigatório.']
     }
+
 
 def test_register_miss_description_should_return_succeed(client) -> None:
     data_params = {
