@@ -30,7 +30,7 @@ def test_one_client_has_params_should_return_succeed(client) -> None:
 
 def test_register_miss_project_params_should_return_succeed(client) -> None:
     data_params = {
-        "description": "projeto consulta"
+        "description": "project register user"
     }
     response = client.post(path=params_url, data=data_params)
     assert response.status_code == 400
@@ -42,7 +42,7 @@ def test_register_miss_project_params_should_return_succeed(client) -> None:
 
 def test_register_miss_description_should_return_succeed(client) -> None:
     data_params = {
-        "project": "projeto consulta"
+        "project": "project register user"
     }
     response = client.post(path=params_url, data=data_params)
     assert response.status_code == 400
