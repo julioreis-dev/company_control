@@ -1,7 +1,6 @@
 import json
 import pytest
 from django.urls import reverse
-import datetime
 from ..models.models_clientes import Dossie
 from ..models.models_params import ParamsUser
 
@@ -29,24 +28,20 @@ def test_one_client_has_params_should_return_succeed(client) -> None:
 
 
 def test_register_miss_project_params_should_return_succeed(client) -> None:
-    data_params = {
-        "description": "project register user"
-    }
+    data_params = {"description": "project register user"}
     response = client.post(path=params_url, data=data_params)
     assert response.status_code == 400
     assert json.loads(response.content) == {
-        'dossie': ['Este campo é obrigatório.'],
-        'project': ['Este campo é obrigatório.']
+        "dossie": ["Este campo é obrigatório."],
+        "project": ["Este campo é obrigatório."],
     }
 
 
 def test_register_miss_description_should_return_succeed(client) -> None:
-    data_params = {
-        "project": "project register user"
-    }
+    data_params = {"project": "project register user"}
     response = client.post(path=params_url, data=data_params)
     assert response.status_code == 400
     assert json.loads(response.content) == {
-        'dossie': ['Este campo é obrigatório.'],
-        'description': ['Este campo é obrigatório.']
+        "dossie": ["Este campo é obrigatório."],
+        "description": ["Este campo é obrigatório."],
     }
