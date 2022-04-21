@@ -3,7 +3,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from .models.models_clientes import Dossie
 from .models.models_params import ParamsUser
-from .serializers import DossieSerializer, ParamsSerializer
+from .models.models_log_actions import LogActions
+from .serializers import DossieSerializer, ParamsSerializer, LogsActionsSerializer
 
 
 class DossieViewSet(viewsets.ModelViewSet):
@@ -14,3 +15,8 @@ class DossieViewSet(viewsets.ModelViewSet):
 class ParamsViewsSet(viewsets.ModelViewSet):
     queryset = ParamsUser.objects.all()
     serializer_class = ParamsSerializer
+
+
+class LogsActionsViewsSet(viewsets.ModelViewSet):
+    queryset = LogActions.objects.all()
+    serializer_class = LogsActionsSerializer
