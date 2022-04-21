@@ -3,7 +3,7 @@ from ..models import *
 
 
 class LogActions(models.Model):
-    name_log = models.CharField(max_length=200, verbose_name="Nome do projeto")
+    name_project = models.CharField(max_length=200, verbose_name="Nome do projeto")
     action_description = models.TextField(verbose_name="Descrição")
     created_at = models.DateTimeField(auto_now_add=True)
     paramsuser = models.ForeignKey(
@@ -11,7 +11,7 @@ class LogActions(models.Model):
     )
 
     def __str__(self):
-        return f"{self.name_log}"
+        return f"{self.name_project}"
 
     class Meta:
         """
