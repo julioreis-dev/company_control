@@ -23,7 +23,7 @@ def test_one_logaction_should_return_succeed(client) -> None:
     test_logaction = LogActions.objects.create(
         name_project="imobiliaria",
         action_description="ajuste google",
-        paramsuser=params_client
+        paramsuser=params_client,
     )
     response = client.get(path=logs_url)
     response_content = json.loads(response.content)[0]
@@ -32,24 +32,22 @@ def test_one_logaction_should_return_succeed(client) -> None:
     assert response_content["action_description"] == test_logaction.action_description
     assert response_content["paramsuser"] == test_logaction.id
 
+
 def test_register_miss_name_project_in_logactions_fail(client) -> None:
-    data_logactions = {
-        "name_project" : "imobiliaria"
-    }
+    data_logactions = {"name_project": "imobiliaria"}
     response = client.post(path=logs_url, data=data_logactions)
     assert response.status_code == 400
     assert json.loads(response.content) == {
-        'action_description': ['Este campo é obrigatório.'],
-        'paramsuser': ['Este campo é obrigatório.']
+        "action_description": ["Este campo é obrigatório."],
+        "paramsuser": ["Este campo é obrigatório."],
     }
 
+
 def test_register_miss_action_description_in_logactions_fail(client) -> None:
-    data_logactions = {
-        "action_description" : "imobiliaria"
-    }
+    data_logactions = {"action_description": "imobiliaria"}
     response = client.post(path=logs_url, data=data_logactions)
     assert response.status_code == 400
     assert json.loads(response.content) == {
-        'name_project': ['Este campo é obrigatório.'],
-        'paramsuser': ['Este campo é obrigatório.']
+        "name_project": ["Este campo é obrigatório."],
+        "paramsuser": ["Este campo é obrigatório."],
     }
